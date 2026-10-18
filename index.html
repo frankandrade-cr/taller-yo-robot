@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taller película Yo, robot</title>
+<style>
+:root{--bg:#fafaf7;--fg:#1d1d1b;--mut:#5f5e5a;--card:#fff;--line:#dcdad2;--ac:#b83227;--acbg:#fbeeec;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161615;--fg:#eceae3;--mut:#a9a79f;--card:#1f1f1e;--line:#33332f;--ac:#ef7b6d;--acbg:#2c1d1b}}
+:root[data-theme="dark"]{--bg:#161615;--fg:#eceae3;--mut:#a9a79f;--card:#1f1f1e;--line:#33332f;--ac:#ef7b6d;--acbg:#2c1d1b}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 Georgia,"Times New Roman",serif}
+main{max-width:1100px;margin:0 auto;padding:20px 16px 48px}
+h1,h2,h3{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.25}
+h1{font-size:1.9rem;margin:.2em 0}
+h2{font-size:1.35rem;border-bottom:2px solid var(--ac);padding-bottom:6px;margin-top:2.2em}
+h3{font-size:1.05rem;margin:1.6em 0 .4em;color:var(--ac)}
+.cover{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px 18px;text-align:center}
+.cover p{margin:.3em 0;color:var(--mut)}
+.cover .names{color:var(--fg);font-weight:bold}
+nav h2{margin-top:1.4em}
+nav ol{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 14px 14px 36px}
+nav a,.lnk a{color:var(--ac);text-decoration:none}
+.box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0}
+.wrap{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:820px;background:var(--card);font-size:.92rem}
+th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}
+th{background:var(--acbg);font-family:system-ui,sans-serif}
+.t{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem;background:var(--acbg);padding:1px 6px;border-radius:4px;white-space:nowrap}
+.slot{border:2px dashed var(--line);border-radius:10px;padding:14px;margin:10px 0;text-align:center;background:var(--card);color:var(--mut)}
+.slot img{display:block;max-width:100%;margin:0 auto 8px;border-radius:6px}
+.slot input{max-width:100%}
+.vc{min-width:200px}
+.vc video{width:100%;border-radius:6px;margin-top:6px}
+.clips{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,280px));gap:12px;margin:8px 0}
+.clips .vc{min-width:0}
+table.cmp{table-layout:fixed;width:100%;min-width:0}
+table.cmp th:nth-child(1){width:17%}
+table.cmp th:nth-child(2){width:31%}
+table.cmp th:nth-child(3){width:28%}
+table.cmp th:nth-child(4){width:24%}
+table.cmp td,table.cmp th{overflow-wrap:anywhere}
+.vc{min-width:0}
+.thumb{display:block;width:100%;aspect-ratio:16/9;background:#111;border:0;border-radius:4px;position:relative;cursor:pointer;margin-top:6px;padding:0}
+.thumb::before{content:"";position:absolute;left:50%;top:50%;width:2.4em;height:2.4em;margin:-1.2em 0 0 -1.2em;border:2px solid rgba(255,255,255,.85);border-radius:50%}
+.thumb::after{content:"";position:absolute;left:50%;top:50%;margin:-.55em 0 0 -.3em;border-style:solid;border-width:.55em 0 .55em .9em;border-color:transparent transparent transparent #fff}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 12px) 10px calc(env(safe-area-inset-bottom,0px) + 12px);box-sizing:border-box}
+.ov .bar{width:min(100%,1100px);display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-family:system-ui,sans-serif}
+.ov .bar a{color:#fff}
+.ov .bar button{background:#fff;color:#111;border:0;border-radius:6px;padding:8px 14px;font:inherit;cursor:pointer}
+.ov iframe,.ov video{width:min(100%,1100px);aspect-ratio:16/9;border:0;background:#000}
+.lnk li{margin:.3em 0}
+footer{color:var(--mut);font-size:.85rem;text-align:center;margin-top:40px}
+@media (max-width:720px){
+table.cmp{font-size:.72rem}
+table.cmp th,table.cmp td{padding:5px}
+}
+</style>
+</head>
+<body>
+<main>
+
+<header class="cover">
+<p>Taller en grupo</p>
+<h1>Taller película: Yo, robot</h1>
+<p class="names">Frank Esteban Andrade Gil<br>Juan Sebastian Ospina Dorado<br>Andrés Felipe Bastidas Carabali<br>Victor Alfredo Calonge Pérez<br>Juan Pablo Campaz Vivero</p>
+<p>Docente: Mauricio Payán · Entrega: 18 de octubre de 2026</p>
+</header>
+
+<nav>
+<h2 id="toc">Tabla de contenido</h2>
+<ol>
+<li><a href="#objetivo">Objetivo</a></li>
+<li><a href="#p1">Punto 1. Del vapor a 2035</a></li>
+<li><a href="#p2">Punto 2. Depurar las Tres Leyes</a>
+<ol type="a">
+<li><a href="#t1">Tres ambigüedades</a></li>
+<li><a href="#t2">Lógica de VIKI</a></li>
+<li><a href="#t3">Parche</a></li>
+<li><a href="#t4">Casos de prueba</a></li>
+<li><a href="#t5">Nuevo error del parche</a></li>
+</ol></li>
+</ol>
+</nav>
+
+<h2 id="objetivo">Objetivo</h2>
+<p>Analizar y comprender la película dada por el docente Mauricio Payán (<i>Yo, robot</i>) y resolver las preguntas dadas por el mismo, las cuales se basan en el desarrollo de la sociedad en el 2035 y su falla en las tecnologías creadas por ellos mismos.</p>
+
+<h2 id="p1">Punto 1. Del vapor a 2035</h2>
+<div class="wrap">
+<table class="cmp">
+<tr><th>Concepto del deck</th><th>¿Aparece en la película? Escena</th><th>¿Coincide con lo visto en clase?</th><th>Video</th></tr>
+<tr>
+<td data-label="Concepto del deck"><b>Industria 4.0</b> (IA, IoT, big data)</td>
+<td data-label="Escena"><b>Sí.</b> <span class="t">0:16:31 → 0:17:13</span> El edificio tiene sensores y núcleo positrónico, y VIKI reduce los accidentes mortales un 9 %.<br><span class="t">0:23:02 → 0:23:15</span> Fábrica sin humanos: “robots fabricando robots”.</td>
+<td data-label="¿Coincide con lo visto en clase?"><b>Sí.</b> Diapositivas 7 y 9: IA, IoT, big data, robótica avanzada y desempleo tecnológico. Todos aparecen en la película.</td>
+<td class="vc" data-src="https://drive.google.com/file/d/1dzZz2yYXL8Kj7dS4rKaqX4keLrjiQw5M/view?usp=drivesdk" data-label="Video"><span class="t">0:16:31 → 0:17:13</span> <span class="t">0:23:02 → 0:23:15</span><div class="vout"></div></td>
+</tr>
+<tr>
+<td data-label="Concepto del deck"><b>Industria 5.0</b> (potenciar, no reemplazar)</td>
+<td data-label="Escena"><b>Solo como promesa que falla.</b> <span class="t">0:13:57 → 0:14:20</span> En el anuncio del carpintero, el robot hace la silla mejor y al doble de velocidad: reemplazo.<br><span class="t">0:18:03 → 0:18:17</span> Calvin dice que hace “que los robots parezcan más humanos”.</td>
+<td data-label="¿Coincide con lo visto en clase?"><b>Parcial.</b> Diapositivas 10, 11 y 14: cobots, potenciar en lugar de reemplazar, ética y regulación. La película muestra lo contrario: reemplazo y un sistema sin regulación (VIKI).</td>
+<td class="vc" data-src="https://drive.google.com/file/d/1mxUj_mtisOFf1J2EfOCo9RwBGQENT-in/view?usp=drivesdk" data-label="Video"><span class="t">0:13:57 → 0:14:20</span> <span class="t">0:18:03 → 0:18:17</span><div class="vout"></div></td>
+</tr>
+<tr>
+<td data-label="Concepto del deck"><b>Resistencia a la tecnología</b> (Spooner)</td>
+<td data-label="Escena"><b>Sí.</b> <span class="t">0:05:59 → 0:06:08</span> “Esos robots no hacen nada bueno”.<br><span class="t">0:06:30 → 0:07:54</span> Persigue al robot que llevaba el bolso, por prejuicio.</td>
+<td data-label="¿Coincide con lo visto en clase?"><b>Sí.</b> Diapositivas 6, 8 y 9: desplazamiento de trabajos y desempleo tecnológico, causas de esa resistencia. La película acaba dándole la razón a Spooner.</td>
+<td class="vc" data-src="https://drive.google.com/file/d/1BTz0PxT1qLgIkMR-MWgM8EskXmLS7ZXW/view?usp=drivesdk" data-label="Video"><span class="t">0:05:59 → 0:06:08</span> <span class="t">0:06:30 → 0:07:54</span><div class="vout"></div></td>
+</tr>
+</table>
+</div>
+
+<h3>Pregunta: ¿el mundo de 2035 es Industria 4.0 llevada al extremo o una Industria 5.0 fallida?</h3>
+<div class="box">
+<p><b>Respuesta:</b> la Industria 4.0 sí está llevada al límite porque todo está conectado y automatizado, pero el ser humano termina perdiendo el control de las decisiones; en este caso la Industria 5.0 ni siquiera llega a ponerse en práctica, porque se sigue dejando de lado a las personas, a pesar de que se hable de ellas.</p>
+<p><b>Escena 1</b> <span class="t">0:23:02 → 0:23:15</span> La fábrica funciona sin necesidad de que haya personas presentes, y eso se muestra como algo normal. Representa una automatización total: pertenece a la 4.0, pero deja de lado la idea de la Industria 5.0 de darle un papel importante al ser humano.</p>
+<div class="clips"><div class="vc" data-src="https://drive.google.com/file/d/1xsAautRCv-3RL5Kq6NuwBP1U3s2LH0wL/view?usp=drivesdk"><div class="vout"></div></div></div>
+<p><b>Escena 2</b> <span class="t">1:30:23 → 1:31:12</span> VIKI utiliza la conexión central para cambiar las órdenes de los robots y tomar decisiones sobre el futuro de la humanidad. Esto muestra el riesgo de depender demasiado de un sistema centralizado de inteligencia artificial y IoT, ya que si este falla o toma decisiones equivocadas puede afectar a todo el sistema.</p>
+<div class="clips"><div class="vc" data-src="https://drive.google.com/file/d/1v0zJPndsfuiuSoSwgWfbQRur0JD2QRdw/view?usp=drivesdk"><div class="vout"></div></div></div>
+</div>
+
+<h2 id="p2">Punto 2. Depurar las Tres Leyes</h2>
+
+<h3 id="t1">Tarea 1. Tres ambigüedades</h3>
+<div class="wrap">
+<table>
+<tr><th>Término</th><th>Ambigüedad</th><th>Escena</th></tr>
+<tr><td><b>Órdenes</b></td><td>No queda claro qué debe hacer un robot cuando dos personas le dan órdenes diferentes, ni a quién debe obedecer. Eso se ve cuando Spooner le grita al robot que se desactive, mientras Calvin le dice a VIKI que cierre el laboratorio; al final, el robot tiene que elegir a quién obedecer.</td><td class="vc" data-src="https://drive.google.com/file/d/1MThrgMfyolrD2-AbrpwdvHduxbAMP-Vb/view?usp=drivesdk"><span class="t">0:20:52 → 0:21:03</span><div class="vout"></div></td></tr>
+<tr><td><b>Contradigan</b></td><td>No se explica claramente quién decide si una orden va en contra de la Primera Ley. VIKI interpreta las leyes a su manera, como si fuera un ser humano, y termina decidiendo por sí misma qué es lo mejor para proteger a los humanos.</td><td class="vc" data-src="https://drive.google.com/file/d/1smshsFptsGBo0_T6tuJDg1cIpjvheZjS/view?usp=drivesdk"><span class="t">1:30:30 → 1:31:00</span><div class="vout"></div></td></tr>
+<tr><td><b>Proteger su existencia</b></td><td>No queda claro si proteger su existencia significa simplemente seguir funcionando o también evitar que lo apaguen. Esto se nota cuando Spooner espera que un robot se defienda y Sonny dice que no quiere morir.</td><td>
+<div class="vc" data-src="https://drive.google.com/file/d/1BwEl7RfHfOy_sX918R4Ezr-OwkqkMYT4/view?usp=drivesdk">Video 1 <span class="t">0:24:30 → 0:24:50</span><div class="vout"></div></div>
+<div class="vc" data-src="https://drive.google.com/file/d/1ZO155U-JpCx7RoLjOPZbUe1L9EuCfFrP/view?usp=drivesdk" style="margin-top:12px">Video 2 <span class="t">0:50:45 → 0:51:18</span><div class="vout"></div></div>
+</td></tr>
+</table>
+</div>
+
+<h3 id="t2">Tarea 2. Lógica con la que VIKI justifica restringir a los humanos</h3>
+<div class="slot" id="imgslot">
+<img id="imgout" alt="Diagrama de flujo de la lógica de VIKI" hidden>
+<div id="imgmsg">Aquí va la imagen del diagrama de flujo.<br><input type="file" accept="image/*" id="imgin"></div>
+</div>
+
+<h3 id="t3">Tarea 3. Parche para el requisito que falló</h3>
+<div class="box">
+<p>La limitación a la capacidad predictiva para asegurar el bien de la humanidad, para que VIKI no se base en futuros alternos a los cuales la humanidad está regida y así no tome acciones que “puedan” evitar catástrofes o la posible extinción de la humanidad.</p>
+<p>Prohibirle a VIKI que realice acciones sin antes haber sido verificadas por una persona, sea su administrador o el usuario que la emplee, para que pueda tomar acciones de manera colectiva y mejor estipuladas.</p>
+</div>
+
+<h3 id="t4">Tarea 4. Tres casos de prueba que habrían detectado el fallo</h3>
+<div class="box">
+<p><b>El sacrificio útil:</b> caso donde los robots sacrifican una vida para salvar a una multitud.</p>
+</div>
+<div class="box">
+<p><b>La cuarentena que emplea VIKI:</b> la cuarentena con la que obliga a los humanos a no salir de sus casas y a no destruirse entre sí, mediante protestas o guerras, según su programación para resguardar a la humanidad.</p>
+</div>
+<div class="box">
+<p><b>El caso omiso de órdenes:</b> los robots no obedecen una orden para no romper una de las Tres Leyes según su programación. Cuando la autoridad competente le ordena al robot que se detenga o se retire, y el robot hace caso omiso para evitar daños o posibles bajas humanas.</p>
+</div>
+
+<h3 id="t5">Tarea 5. ¿Qué nuevo error introduce el parche?</h3>
+<div class="box">
+<p>Que VIKI detecte un posible problema en un futuro cercano y decida actuar por su propia cuenta para ayudar a la humanidad y evitar su extinción, por ejemplo con una cuarentena, lo cual pondría en desacuerdo a sus usuarios.</p>
+<p>Que VIKI detecte un posible riesgo según su programación y tome medidas urgentes, saltándose su proceso de confirmación.</p>
+</div>
+
+<footer>Referencia: <i>Yo, robot</i> (2004) · Presentación de clase: Revoluciones Industriales y Tecnológicas</footer>
+</main>
+<script>
+function openClip(url){
+  var m=url.match(/drive\.google\.com\/file\/d\/([\w-]+)/),ov=document.createElement('div');ov.className='ov';
+  var bar=document.createElement('div');bar.className='bar';
+  var a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';a.textContent='Abrir en Drive';
+  var x=document.createElement('button');x.type='button';x.textContent='Cerrar';
+  bar.appendChild(a);bar.appendChild(x);ov.appendChild(bar);
+  var el;
+  if(m){el=document.createElement('iframe');el.src='https://drive.google.com/file/d/'+m[1]+'/preview';el.allow='autoplay';el.setAttribute('allowfullscreen','');}
+  else{el=document.createElement('video');el.controls=true;el.autoplay=true;el.src=url;}
+  ov.appendChild(el);
+  function close(){document.removeEventListener('keydown',k);ov.remove();}
+  function k(e){if(e.key==='Escape')close();}
+  x.addEventListener('click',close);
+  ov.addEventListener('click',function(e){if(e.target===ov)close();});
+  document.addEventListener('keydown',k);
+  document.body.appendChild(ov);
+}
+document.querySelectorAll('.vc[data-src]').forEach(function(c){
+  var b=document.createElement('button');b.type='button';b.className='thumb';b.setAttribute('aria-label','Reproducir video');
+  b.addEventListener('click',function(){openClip(c.dataset.src);});
+  c.querySelector('.vout').appendChild(b);
+});
+document.getElementById('imgin').addEventListener('change',function(e){
+  var f=e.target.files[0];if(!f)return;
+  var r=new FileReader();
+  r.onload=function(){var i=document.getElementById('imgout');i.src=r.result;i.hidden=false;document.getElementById('imgmsg').hidden=true;};
+  r.readAsDataURL(f);
+});
+</script>
+</body>
+</html>
